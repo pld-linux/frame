@@ -7,7 +7,7 @@ Name:		frame
 Version:	2.5.0
 Release:	1
 License:	GPL v3 / LGPL v3
-Group:		X11/Libraries
+Group:		Libraries
 Source0:	https://launchpad.net/frame/trunk/v%{version}/+download/%{name}-%{version}.tar.xz
 # Source0-md5:	f523283e80a1de613bd38e3b7f0c5f8e
 URL:		https://launchpad.net/frame
@@ -23,6 +23,18 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Frame handles the buildup and synchronization of a set of simultaneous
 touches.
+
+%package tools
+Summary:	Test tools for frame library
+Summary(pl.UTF-8):	Testowe narzędzia biblioteki frame
+Group:		Libraries
+Requires:	%{name} = %{version}-%{release}
+
+%description tools
+Test tools for frame library.
+
+%description tools -l pl.UTF-8
+Testowe narzędzia biblioteki frame.
 
 %package devel
 Summary:	Header files for frame library
@@ -73,9 +85,12 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README
-%attr(755,root,root) %{_bindir}/frame-test-x11
 %attr(755,root,root) %{_libdir}/libframe.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libframe.so.6
+
+%files tools
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/frame-test-x11
 %{_mandir}/man1/frame-test-x11.1*
 
 %files devel
