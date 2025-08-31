@@ -1,8 +1,9 @@
 #
 # Conditional build:
-%bcond_without	static_libs	# don't build static libraries
+%bcond_without	static_libs	# static library
 #
 Summary:	Open Input Framework Frame Library
+Summary(pl.UTF-8):	Biblioteka Open Input Framework Frame
 Name:		frame
 Version:	2.5.0
 Release:	1
@@ -12,17 +13,22 @@ Source0:	https://launchpad.net/frame/trunk/v%{version}/+download/%{name}-%{versi
 # Source0-md5:	f523283e80a1de613bd38e3b7f0c5f8e
 URL:		https://launchpad.net/frame
 BuildRequires:	asciidoc
+BuildRequires:	tar >= 1:1.22
 BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xorg-lib-libXext-devel
 BuildRequires:	xorg-xserver-server-devel
 BuildRequires:	xorg-lib-libXi-devel >= 1.6.0
 BuildRequires:	xorg-proto-inputproto-devel >= 2.2.0
-Requires(post,postun):	/sbin/ldconfig
+BuildRequires:	xz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Frame handles the buildup and synchronization of a set of simultaneous
 touches.
+
+%description -l pl.UTF-8
+Biblioteka Frame obsługuje gromadzenie i synchronizację zbioru
+jednoczesnych dotknięć.
 
 %package tools
 Summary:	Test tools for frame library
