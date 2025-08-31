@@ -13,6 +13,11 @@ Source0:	https://launchpad.net/frame/trunk/v%{version}/+download/%{name}-%{versi
 # Source0-md5:	f523283e80a1de613bd38e3b7f0c5f8e
 URL:		https://launchpad.net/frame
 BuildRequires:	asciidoc
+# -std=c1x
+BuildRequires:	gcc >= 6:4.3
+# -std=c++0x
+BuildRequires:	libstdc++-devel >= 6:4.3
+BuildRequires:	pkgconfig
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xorg-lib-libXext-devel
@@ -70,9 +75,14 @@ Statyczna biblioteka frame.
 %setup -q
 
 %build
+CXXFLAGS="%{rpmcxxflags} -Wno-error=unused-variable"
 %configure \
-	%{!?with_static_libs:--disable-static}
-%{__make} V=1
+	--disable-integaation-tests \
+	--disable-silent-rules \
+	%{!?with_static_libs:--disable-static} \
+	--enable-x11
+
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
