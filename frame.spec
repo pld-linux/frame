@@ -6,7 +6,7 @@ Summary:	Open Input Framework Frame Library
 Summary(pl.UTF-8):	Biblioteka Open Input Framework Frame
 Name:		frame
 Version:	2.5.0
-Release:	1
+Release:	2
 License:	GPL v3 / LGPL v3
 Group:		Libraries
 Source0:	https://launchpad.net/frame/trunk/v%{version}/+download/%{name}-%{version}.tar.xz
