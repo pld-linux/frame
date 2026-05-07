@@ -1,0 +1,11 @@
+--- frame-2.5.0/configure.ac~	2013-02-08 20:05:24.000000000 +0100
++++ frame-2.5.0/configure.ac	2026-05-08 01:26:12.026680981 +0200
+@@ -125,7 +125,7 @@
+ AC_SUBST(CXX_LIBS)
+ AC_LANG_POP(C++)
+ 
+-AC_SUBST(WARNING_CPPFLAGS, "-Wall -Werror")
++AC_SUBST(WARNING_CPPFLAGS, "-Wall")
+ AC_SUBST(C11_CFLAGS, "-std=c1x")
+ AC_SUBST(CXX11_CXXFLAGS, "-std=c++0x")
+ AC_SUBST(VISIBILITY_CFLAGS, "-fvisibility=hidden")

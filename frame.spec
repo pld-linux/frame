@@ -6,11 +6,12 @@ Summary:	Open Input Framework Frame Library
 Summary(pl.UTF-8):	Biblioteka Open Input Framework Frame
 Name:		frame
 Version:	2.5.0
-Release:	2
+Release:	3
 License:	GPL v3 / LGPL v3
 Group:		Libraries
 Source0:	https://launchpad.net/frame/trunk/v%{version}/+download/%{name}-%{version}.tar.xz
 # Source0-md5:	f523283e80a1de613bd38e3b7f0c5f8e
+Patch0:		no-Werror.patch
 URL:		https://launchpad.net/frame
 BuildRequires:	asciidoc
 # -std=c1x
@@ -73,6 +74,7 @@ Statyczna biblioteka frame.
 
 %prep
 %setup -q
+%patch -P0 -p1
 
 %build
 CXXFLAGS="%{rpmcxxflags} -Wno-error=unused-variable"
